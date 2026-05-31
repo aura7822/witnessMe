@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VTuber3D</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- Background -->
+  <div id="bg-layer">
+    <div id="bg-solid"></div>
+    <img id="bg-image" src="" alt="" />
+  </div>
+
+  <!-- Three.js canvas -->
+  <canvas id="avatar-canvas"></canvas>
+
+  <!-- Hidden webcam -->
+  <video id="webcam" autoplay muted playsinline></video>
+
+  <!-- Sidebar toggle -->
+  <button id="sidebar-toggle" title="Toggle panel">☰</button>
+
+  <!-- ── SIDEBAR ── -->
+  <aside id="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="sidebar-title">VTuber3D</div>
+
+      <!-- Avatar -->
+      <section class="card">
+        <div class="card-label">Avatar</div>
+        <div id="drop-zone">
+          <span id="drop-text">Drop .vrm file here or click to browse</span>
+          <input type="file" id="vrm-input" accept=".vrm" />
+        </div>
+        <div id="avatar-name" class="avatar-name">Loading…</div>
+      </section>
+
+      <!-- Tracking -->
+      <section class="card">
+        <div class="card-label">Tracking Mode</div>
+        <div class="btn-group">
+          <button class="mode-btn" data-mode="face">👤 Face only</button>
+          <button class="mode-btn active" data-mode="body">🕺 Full Body</button>
+        </div>
+        <div id="tracking-status" class="status-line">● Initializing…</div>
+        <div id="mode-desc" class="mode-desc">Tracks face + arms + hands</div>
+        <div class="live-dot-row"><span id="live-dot" class="live-dot"></span><span class="live-label">Live feed (green = active)</span></div>
+        <button id="btn-wiggle" class="btn-secondary">🦾 Wiggle Test</button>
+        <div class="hint-text">Tap to verify avatar bones respond — arms wave if pipeline is OK</div>
+      </section>
+
+      <!-- Camera -->
+      <section class="card">
+        <div class="card-label">Camera View</div>
+        <div class="btn-group">
+          <button class="cam-btn active" data-cam="front">Front</button>
+          <button class="cam-btn" data-cam="bust">Bust</button>
+          <button class="cam-btn" data-cam="side">Side</button>
+          <button class="cam-btn" data-cam="full">Full</button>
+        </div>
+      </section>
+
+      <!-- Background -->
+      <section class="card">
+        <div class="card-label">Background</div>
+        <div class="bg-type-tabs">
+          <button class="bg-type active" data-type="solid">Solid</button>
+          <button class="bg-type" data-type="gradient">Gradient</button>
+          <button class="bg-type" data-type="image">Image</button>
+        </div>
+
+        <div id="bg-solid-ctrl" class="bg-ctrl active">
+          <div class="color-row">
+            <button class="swatch active" data-color="#00b140" style="background:#00b140" title="Green screen"></button>
+            <button class="swatch" data-color="#0047ab" style="background:#0047ab" title="Blue screen"></button>
+            <button class="swatch" data-color="#ff0000" style="background:#ff0000" title="Red"></button>
+            <button class="swatch" data-color="#111111" style="background:#111111" title="Black"></button>
+            <button class="swatch" data-color="#ffffff" style="background:#ffffff" title="White"></button>
+            <button class="swatch" data-color="#f0f0f0" style="background:#f0f0f0" title="Light grey"></button>
+            <button class="swatch" data-color="#d0d8e4" style="background:#d0d8e4" title="Pale blue"></button>
+            <button class="swatch" data-color="#fce4ec" style="background:#fce4ec" title="Pale pink"></button>
+          </div>
+          <div class="custom-color-row">
+            <label>Custom</label>
+            <input type="color" id="solid-color-picker" value="#00b140" />
+          </div>
+        </div>
+
+        <div id="bg-gradient-ctrl" class="bg-ctrl">
+          <div class="gradient-presets">
+            <button class="grad-btn" data-grad="linear-gradient(135deg,#e0e7ff,#f0f4ff)" style="background:linear-gradient(135deg,#e0e7ff,#f0f4ff)" title="Soft blue"></button>
+            <button class="grad-btn" data-grad="linear-gradient(135deg,#fff1eb,#ffd0a0)" style="background:linear-gradient(135deg,#fff1eb,#ffd0a0)" title="Peach"></button>
+            <button class="grad-btn" data-grad="linear-gradient(135deg,#fce4ec,#f8bbd0)" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0)" title="Pink"></button>
+            <button class="grad-btn" data-grad="linear-gradient(135deg,#e8f5e9,#b2dfdb)" style="background:linear-gradient(135deg,#e8f5e9,#b2dfdb)" title="Mint"></button>
+            <button class="grad-btn" data-grad="linear-gradient(180deg,#90caf9,#e3f2fd)" style="background:linear-gradient(180deg,#90caf9,#e3f2fd)" title="Sky"></button>
+            <button class="grad-btn" data-grad="linear-gradient(135deg,#ace0f9,#a8edea)" style="background:linear-gradient(135deg,#ace0f9,#a8edea)" title="Ocean"></button>
+            <button class="grad-btn" data-grad="linear-gradient(135deg,#e8d5f5,#d4b8f0)" style="background:linear-gradient(135deg,#e8d5f5,#d4b8f0)" title="Lavender"></button>
+            <button class="grad-btn" data-grad="linear-gradient(135deg,#f9d423,#ff6f61)" style="background:linear-gradient(135deg,#f9d423,#ff6f61)" title="Sunset"></button>
+            <button class="grad-btn" data-grad="linear-gradient(180deg,#2c2c2c,#444)" style="background:linear-gradient(180deg,#2c2c2c,#444)" title="Charcoal"></button>
+            <button class="grad-btn" data-grad="linear-gradient(135deg,#1a1a2e,#16213e)" style="background:linear-gradient(135deg,#1a1a2e,#16213e)" title="Navy"></button>
+            <button class="grad-btn" data-grad="linear-gradient(135deg,#0f2027,#2c5364)" style="background:linear-gradient(135deg,#0f2027,#2c5364)" title="Deep sea"></button>
+            <button class="grad-btn" data-grad="linear-gradient(135deg,#1a0033,#3d0070)" style="background:linear-gradient(135deg,#1a0033,#3d0070)" title="Purple"></button>
+          </div>
+          <div class="grad-custom">
+            <input type="color" id="grad-color-a" value="#e0e7ff" title="Start" />
+            <span>→</span>
+            <input type="color" id="grad-color-b" value="#f0f4ff" title="End" />
+            <select id="grad-direction">
+              <option value="135deg">↘ Diagonal</option>
+              <option value="180deg">↓ Top→Bot</option>
+              <option value="90deg">→ Left→Right</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="bg-image-ctrl" class="bg-ctrl">
+          <label class="upload-btn">📁 Upload Image
+            <input type="file" id="bg-input" accept="image/*" />
+          </label>
+          <div id="bg-img-name" class="bg-img-name"></div>
+        </div>
+      </section>
+
+      <!-- Speech -->
+      <section class="card">
+        <div class="card-label">Speech &amp; Lip Sync</div>
+        <button id="btn-mic" class="btn-primary">🎤 Start Microphone</button>
+        <div class="toggle-row">
+          <label for="toggle-captions">Show captions</label>
+          <input type="checkbox" id="toggle-captions" checked />
+        </div>
+        <div class="toggle-row">
+          <label for="toggle-preview">Webcam preview</label>
+          <input type="checkbox" id="toggle-preview" checked />
+        </div>
+      </section>
+
+      <div class="sidebar-tip">Drag to orbit · Scroll to zoom · Right-drag to pan</div>
+
+    </div>
+  </aside>
+
+  <!-- Webcam preview -->
+  <div id="preview-box">
+    <canvas id="preview-canvas"></canvas>
+  </div>
+
+  <!-- Captions -->
+  <div id="captions-bar" class="hidden">
+    <span id="captions-text"></span>
+  </div>
+
+  <!-- FPS -->
+  <div id="fps-badge"><span id="fps-val">--</span> fps</div>
+
+  <!-- ── DIAGNOSTIC PANEL ── -->
+  <div id="diag-panel">
+    <div class="diag-title">🔬 Tracking Diagnostics</div>
+    <table class="diag-table">
+      <tr><td>MP Callbacks</td><td id="d-mp">0</td></tr>
+      <tr><td>World LM len</td><td id="d-wlm">—</td></tr>
+      <tr><td>Pose LM len</td><td id="d-plm">—</td></tr>
+      <tr><td>Face LM len</td><td id="d-flm">—</td></tr>
+      <tr><td>Face solved</td><td id="d-face">✗</td></tr>
+      <tr><td>Pose solved</td><td id="d-pose">✗</td></tr>
+      <tr><td>Bone found</td><td id="d-bone">✗</td></tr>
+      <tr><td>R arm Z</td><td id="d-rz">—</td></tr>
+      <tr><td>L arm Z</td><td id="d-lz">—</td></tr>
+      <tr><td>Head Y</td><td id="d-hy">—</td></tr>
+    </table>
+    <button id="diag-close">✕ Close</button>
+  </div>
+  <button id="diag-open">🔬 Diagnostics</button>
+
+  <!-- Loading overlay -->
+  <div id="loading-overlay">
+    <div id="loading-spinner"></div>
+    <div id="loading-text">Loading…</div>
+  </div>
+
+</div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
