@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * preview.js — webcam preview + MediaPipe landmark overlay
  * Draws face mesh, pose skeleton, and hand connections exactly like the Glitch demo GIF
@@ -48,6 +49,18 @@ export class PreviewRenderer {
   /** Called from MediaPipe onResults — stores latest results for overlay */
   setResults(results) { this._lastResults = results; }
 
+=======
+export class PreviewRenderer {
+  constructor(videoEl, canvasEl) {
+    this.video = videoEl; this.canvas = canvasEl;
+    this.ctx = canvasEl.getContext('2d');
+    this.mirror = true; this._raf = null;
+    this._loop = this._loop.bind(this);
+  }
+  start()  { if (!this._raf) this._raf = requestAnimationFrame(this._loop); }
+  stop()   { if (this._raf) cancelAnimationFrame(this._raf); this._raf = null; }
+  setMirror(v) { this.mirror = v; }
+>>>>>>> 51c8c7ab16f3e0a69a6217237bbc7121b21c679f
   _loop() {
     const { video: v, canvas: c, ctx, mirror } = this;
     if (v.readyState >= 2) {
@@ -55,6 +68,7 @@ export class PreviewRenderer {
       if (mirror) { ctx.scale(-1, 1); ctx.translate(-c.width, 0); }
       ctx.drawImage(v, 0, 0, c.width, c.height);
       ctx.restore();
+<<<<<<< HEAD
 
       // Draw landmark overlays if drawing utils are ready
       if (this._drawingReady && this._lastResults) {
@@ -115,4 +129,9 @@ export class PreviewRenderer {
 
     ctx.restore();
   }
+=======
+    }
+    this._raf = requestAnimationFrame(this._loop);
+  }
+>>>>>>> 51c8c7ab16f3e0a69a6217237bbc7121b21c679f
 }

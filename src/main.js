@@ -175,9 +175,13 @@ async function initTracking(mode) {
     await startTracking(
       mode, $('webcam'),
       results => {
+<<<<<<< HEAD
         state.lastMpFrame = performance.now();
         // Draw landmark overlay on webcam preview
         preview.setResults(results);
+=======
+        state.lastMpFrame = performance.now(); // update live dot
+>>>>>>> 51c8c7ab16f3e0a69a6217237bbc7121b21c679f
         if (!state.rigger || state.wiggle) return;
         if (results.type === 'face') state.rigger.storeface(results);
         else                          state.rigger.storeBody(results);
