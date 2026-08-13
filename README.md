@@ -1,6 +1,6 @@
-# VTuber3D 🎭
+# witnessMe - vtuber 3D portal
 
-A browser-based VTuber app with real-time face & body tracking for VRM 3D avatars — no installation required.
+A browser-based VTuber program with real-time face & body tracking for VRM 3D avatars — no installation required.
 
 > Inspired by [kalidoface-3d](https://github.com/yeemachine/kalidoface-3d). Built with a modern Vite stack for minimal lag and easy customization.
 
