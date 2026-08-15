@@ -6,7 +6,7 @@
   </td><td>
     <img src = "https://github.com/aura7822/witnessMe/blob/main/Screenshot_20260815_022454.png" width="300" height="190" />
 </td>
-<td>A Web-based VTuber program containing <br> comprehensive face & body tracking by 3D <br> VRM avatars <strong>＠</strong>no installation complexities</td></tr>
+<td>A Web-based VTuber FOSS program containing <br> comprehensive face & body tracking by 3D <br> VRM avatars <strong>＠</strong>no installation complexities</td></tr>
     
 </table>
 <p>
