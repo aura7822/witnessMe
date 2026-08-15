@@ -6,7 +6,7 @@
   </td><td>
     <img src = "https://github.com/aura7822/witnessMe/blob/main/Screenshot_20260815_022454.png" width="300" height="190" />
 </td>
-<td>A Web-based VTuber program containing <br> comprehensive face & body tracking by 3d <br> VRM avatars <strong>＠</strong>no installation complexities</td></tr>
+<td>A Web-based VTuber program containing <br> comprehensive face & body tracking by 3D <br> VRM avatars <strong>＠</strong>no installation complexities</td></tr>
     
 </table>
 <p>
@@ -26,8 +26,7 @@
 <table><tr><td>
     
     
-    git clone git@github.com
-    :aura7822/witnessMe.git
+    git clone git@github.com:aura7822/witnessMe.git
     cd witnessMe
     npm install --legacy-peer-deps
     npm run dev
@@ -36,8 +35,7 @@
 
     
     
-    git clone git@github.com
-    :aura7822/witnessMe.git
+    git clone git@github.com:aura7822/witnessMe.git
     cd witnessMe
     npm install --legacy-peer-deps
     npm run dev
@@ -113,7 +111,7 @@
 
 ##  Customization
 
-### Add a default avatar
+### Initialize a default avatar
 
 Place your `.vrm` in `public/models/` and update `loadDefaultAvatar()` in `src/main.js`:
 
@@ -138,7 +136,9 @@ controls.enabled = true;
 ```
 <div align="center">
     
-##  Credits-
+
+    
+### Credits-
 <table><tr><td
     [KalidoKit](https://github.com/yeemachine/kalidokit) — blendshape & kinematics solver
 </td></tr><tr><td>
