@@ -1,118 +1,117 @@
-# witnessMe - vtuber 3D portal
+<div align="center">
+<table>
+    <tr><td> <strong>
+ witnessMe👁™  </strong> <br><br><br><br><br>
+        alpha release<br> □□□□□□□□□□□□□□□
+  </td><td>
+    <img src = "https://github.com/aura7822/witnessMe/blob/main/Screenshot_20260815_022454.png" width="300" height="190" />
+</td>
+<td>A Web-based VTuber program containing <br> comprehensive face & body tracking by 3d <br> VRM avatars <strong>＠</strong>no installation complexities</td></tr>
+    
+</table>
+<p>
+ <img src="https://skillicons.dev/icons?i=blender,vite,threejs,,nodejs,wasm,js,coffeescript,,,npm,html,ts,vscode,git" />
+    
+</p>
 
-A browser-based VTuber program with real-time face & body tracking for VRM 3D avatars — no installation required.
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
-> Inspired by [kalidoface-3d](https://github.com/yeemachine/kalidoface-3d). Built with a modern Vite stack for minimal lag and easy customization.
+### LAUNCHING :
 
-![Preview](https://img.shields.io/badge/status-active-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue)
 
-## ✨ Features
+    
+<table><tr><td><p>LINUX_ TERMINAL _ SHELL</p>   </td><td>WINDOWS _POWER _SHELL</td></tr></table>
 
-- 🎭 **VRM avatar support** — drag & drop any `.vrm` file
-- 👁️ **Face tracking** — eyes, brows, mouth shapes, head rotation, pupil tracking
-- 🕺 **Full-body tracking** — upper body, arms, hands & fingers (Holistic mode)
-- 📷 **4 camera presets** — Front, Side, Bust, Full body (animated transitions)
-- 🎨 **Custom backgrounds** — chroma key colors (green/blue/red/black/white) or image upload
-- 🪞 **Webcam preview** with mirror toggle
-- ⚡ **Minimal lag** — optimized Three.js render loop, delta-time VRM updates
-- 📦 **Zero backend** — runs entirely in the browser
 
-## 🚀 Quick Start
+<table><tr><td>
+    
+    
+    git clone git@github.com
+    :aura7822/witnessMe.git
+    cd witnessMe
+    npm install --legacy-peer-deps
+    npm run dev
+    
+</td><td>
 
-```bash
-# Clone
-git clone https://github.com/YOUR_USERNAME/vtuber3d.git
-cd vtuber3d
+    
+    
+    git clone git@github.com
+    :aura7822/witnessMe.git
+    cd witnessMe
+    npm install --legacy-peer-deps
+    npm run dev
+    
+</td></tr></table>
+</td></div>
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
-# Install dependencies
-npm install
+##  COMPONENTS
 
-# Run dev server
-npm run dev
-# → Open http://localhost:5173
-```
+⿻  **VRM avatar support** — drag & drop any `.vrm` file
 
-## 🏗️ Build for Production
+⿻  **Face tracking** — eyes, brows, mouth shapes, head rotation, pupil tracking
 
-```bash
-npm run build
-# Output in /dist — deploy to GitHub Pages, Vercel, Netlify, etc.
-```
+⿻  **Full-body tracking** — upper body, arms, hands & fingers (Holistic mode)
 
-### Deploy to GitHub Pages
+⿻  **4 camera presets** — Front, Side, Bust, Full body (animated transitions)
 
-```bash
-npm run build
-# In repo Settings → Pages → Source: gh-pages branch
-# Or use the gh-pages package:
-npx gh-pages -d dist
-```
+⿻  **Custom backgrounds** — chroma key colors (green/blue/red/black/white) or image upload
 
-## 🧱 Tech Stack
+⿻  **Webcam preview** with mirror toggle
 
-| Layer | Library |
-|---|---|
-| Rendering | [Three.js](https://threejs.org/) r160 |
-| VRM | [@pixiv/three-vrm](https://github.com/pixiv/three-vrm) v2 |
-| Face Tracking | [MediaPipe FaceMesh](https://google.github.io/mediapipe/solutions/face_mesh) |
-| Body Tracking | [MediaPipe Holistic](https://google.github.io/mediapipe/solutions/holistic) |
-| Kinematics | [KalidoKit](https://github.com/yeemachine/kalidokit) |
-| Bundler | [Vite](https://vitejs.dev/) v5 |
+⿻  **Minimal lag** — optimized Three.js render loop, delta-time VRM updates
 
-## 🎮 Usage
+⿻  **Zero backend** — runs entirely in the browser
 
-### Adding a Custom Avatar
 
-1. Get a `.vrm` file from [VRoid Hub](https://hub.vroid.com/) (free)
+
+## MANIPULATION-
+
+### Adding a Custom Avatar-
+
+1. Aquire a `.vrm` file from [VRoid Hub](https://hub.vroid.com/) (free)
 2. Drag & drop the file onto the **drop zone** in the sidebar
 3. Your avatar loads instantly — saved for the session
-
-### Tracking Modes
+<div align="center">
+    
+### Tracking Modes-
 
 | Mode | What's tracked |
 |---|---|
 | **Face** | Head rotation, blink, mouth shapes, pupils, brows |
 | **Body** | All of the above + upper body, arms, hands, fingers |
 
-> Body mode uses MediaPipe Holistic which is heavier — recommended for machines with a dedicated GPU or recent CPU.
+</div>
 
-### Camera Presets
+<table><tr><td>TIP:</td></tr></table> Body mode uses MediaPipe Holistic which is heavier — recommended for machines with a dedicated GPU or recent CPU.
+
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+<table>
+    <tr><td>  Camera Presets </td></tr>
+</table>
+
 
 - **Front** — Default portrait view
 - **Side** — Profile angle
 - **Bust** — Close-up torso
 - **Full** — Full-body view
+<table><tr><td>Backround</td></tr></table>
 
-### Background
 
 - Pick a **chroma key** color for use in OBS (Browser Source)
 - Upload a custom **image background**
 
-### OBS Integration
+<table><tr><td>OBS Integration</td></tr></table>
 
 1. Add a **Browser Source** in OBS
 2. Set the URL to your hosted app (or `http://localhost:5173`)
 3. Enable **Chroma Key** filter with the matching color
 4. Your avatar overlays cleanly on any scene
 
-## 📁 Project Structure
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
-```
-vtuber3d/
-├── index.html          # Entry point
-├── vite.config.js      # Vite config
-├── src/
-│   ├── main.js         # App orchestrator
-│   ├── scene.js        # Three.js scene, camera, VRM loader
-│   ├── rigger.js       # KalidoKit → VRM blendshape/bone mapper
-│   ├── tracker.js      # MediaPipe FaceMesh / Holistic setup
-│   ├── preview.js      # Webcam preview canvas renderer
-│   └── style.css       # UI styles
-└── public/
-    └── models/         # (optional) place local .vrm files here
-```
-
-## 🔧 Customization
+##  Customization
 
 ### Add a default avatar
 
@@ -127,24 +126,30 @@ const resp = await fetch('/models/my-avatar.vrm');
 In `src/rigger.js`, the `lerp` alpha values control smoothing (0 = very smooth/laggy, 1 = instant):
 
 ```js
-// Example: smoother head tracking
+// Instance: smoother head tracking
 lerp(head.rotation.x, rig.head.x, 0.3); // was 0.5
 ```
 
-### Enable orbit controls (dev)
+### Enable orbit controls [dev]
 
 In `src/scene.js`, set:
 ```js
 controls.enabled = true;
 ```
+<div align="center">
+    
+##  Credits-
+<table><tr><td
+    [KalidoKit](https://github.com/yeemachine/kalidokit) — blendshape & kinematics solver
+</td></tr><tr><td>
+    [three-vrm](https://github.com/pixiv/three-vrm) — VRM support for Three.js
+</td></tr><tr><td>
+     [MediaPipe](https://mediapipe.dev/) — ML face & body models
+</td></tr><tr><td>
+    Default avatar from [KalidoKit docs](https://github.com/yeemachine/kalidokit)
+</td></tr></table>
 
-## 🤝 Credits
 
-- [KalidoKit](https://github.com/yeemachine/kalidokit) — blendshape & kinematics solver
-- [three-vrm](https://github.com/pixiv/three-vrm) — VRM support for Three.js
-- [MediaPipe](https://mediapipe.dev/) — ML face & body models
-- Default avatar from [KalidoKit docs](https://github.com/yeemachine/kalidokit)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-☕-ff0000?style=for-the-badge)](https://www.buymeacoffee.com/aura7822)
 
-## 📄 License
-
-MIT — do whatever you want, attribution appreciated.
+</div>
