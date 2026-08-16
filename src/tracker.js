@@ -113,21 +113,13 @@ async function _startBody(videoEl, onResults, onStatus) {
 
   const h = new window.Holistic({ locateFile: f => `${CDN.holistic}/${f}` });
   h.setOptions({
-<<<<<<< HEAD
-    modelComplexity:        1,   // 1=balanced; 2=heavy/unstable on most hardware
-=======
-    modelComplexity:        1,
->>>>>>> 51c8c7ab16f3e0a69a6217237bbc7121b21c679f
+    modelComplexity:        2,   // max accuracy for fingers/body contact
     smoothLandmarks:        true,
     enableSegmentation:     false,
     refineFaceLandmarks:    true,
     minDetectionConfidence: 0.5,
-<<<<<<< HEAD
     minTrackingConfidence:  0.6,   // higher = less jitter
     selfieMode:             false, // correct mirror orientation
-=======
-    minTrackingConfidence:  0.5,
->>>>>>> 51c8c7ab16f3e0a69a6217237bbc7121b21c679f
   });
   h.onResults(r => {
     if (_running) onResults({ type: 'body', ...r });
