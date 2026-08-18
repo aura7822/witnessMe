@@ -44,7 +44,7 @@
 </td></div>
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
-##  COMPONENTS
+##  ELEMENTS
 
 ⿻  **VRM avatar support** — drag & drop any `.vrm` file
 
@@ -66,7 +66,7 @@
 
 ## MANIPULATION-
 
-### Adding a Custom Avatar-
+### Including a Custom Avatar-
 
 1. Aquire a `.vrm` file from [VRoid Hub](https://hub.vroid.com/) (free)
 2. Drag & drop the file onto the **drop zone** in the sidebar
